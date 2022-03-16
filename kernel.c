@@ -1,5 +1,4 @@
 #include <kernel.h>
-#include <font.h>
 #include <vesa.h>
 
 
@@ -16,6 +15,17 @@ int kmain(struct multiboot_info *mboot_info) {
     framebuffer_size = framebuffer_height * framebuffer_pitch;
     back_framebuffer_addr = framebuffer_addr;
 
+
+    vmm_init();
+    //vmm_test();
+
+    kheap_init();
+    //kheap_test();
+
+    //tty_init();
+    init_vbe(mboot_info);
+
+    while(1);
     return 0;
 }
 
