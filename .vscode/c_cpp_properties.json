@@ -3,7 +3,9 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "C:/MinGW/lib/gcc/mingw32/6.3.0/include",
+                "C:/Program Files/i686-elf/lib/gcc/i686-elf/7.1.0/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -13,7 +15,7 @@
             "cStandard": "gnu11",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-x64",
-            "compilerPath": "C:\\Program Files\\i686-elf\\bin"
+            "compilerPath": "C:\\Program Files\\i686-elf\\bin\\i686-elf-gcc.exe"
         }
     ],
     "version": 4

@@ -1,5 +1,6 @@
 #include <kernel.h>
-
+#include <font.h>
+#include <vesa.h>
 
 
 // Ядро ОС
@@ -19,10 +20,14 @@ int kmain(struct multiboot_info *mboot_info) {
 }
 
 
-inline uint8_t inb(uint16_t port) {
+uint8_t inb(uint16_t port) {
     uint8_t ret;
-    gas("inb %1, %0" : "=a"(ret) : "Nd"(port));
+    asm volatile("inb %1, %0" : "=a"(ret) : "Nd"(port));
     return ret;
+}
+
+void outb(uint16_t port, uint8_t  val) {
+    asm volatile("outb %0, %1" : : "a"(val), "Nd"(port));
 }
 
 
@@ -127,6 +132,13 @@ void qemu_print(char *format, va_list args) {
         }
         i++;
     }
+}
+void tty_printf(char *text, ...) {
+    va_list args;
+    // find the first argument
+    va_start(args, text);
+    // pass print the output handle the format text and the first argument
+    qemu_print(text, args);
 }
 
 void qemu_printf(char *text, ...) {

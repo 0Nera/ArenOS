@@ -1,6 +1,7 @@
 #pragma once
 
-#define gas asm volatile(a)
+
+#define PORT_COM1 0x3f8
 #define bool _Bool
 #define PAGE_SIZE       4096
 #define TRUE  0x01

@@ -3,7 +3,7 @@
 
 SET CC=i686-elf-gcc
 
-SET CCFLAGS=-g -I include -ffreestanding -Wall -Wextra 
+SET CCFLAGS=-g -I include -ffreestanding -w 
 SET LDFLAGS=%CCFLAGS% -nostdlib -lgcc
 
 

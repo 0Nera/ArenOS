@@ -1,15 +1,20 @@
 #pragma once
 
+
 #include <stddef.h>
 #include <stdint.h>
 #include <stdarg.h>
 #include <BASE.h>
 #include <multyboot.h>
-#include <font.h>
-#include <vesa.h>
+
+#include <mm.h>
+
+
 
 void qemu_printf(char *text, ... );
-
+uint8_t inb(uint16_t port); // Read a byte from port
+void outb(uint16_t port, uint8_t  val); // Write a byte into port
+void tty_printf(char *text, ...);
 
 int strcmp(const char*, const char*);
 int strncmp(const char*, const char*, size_t);
@@ -29,7 +34,6 @@ char *strtok(char *s, const char *delim);
 size_t strlen(const char*);
 size_t str_bksp(char *str, char c);
 
-//size_t utf8_strlen(const uint32_t*);
 
 int atoi(const char*);
 char* itoa(int, char*, int);
